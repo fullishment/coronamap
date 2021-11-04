@@ -252,7 +252,7 @@ function seoulApi(){
     var xhr = new XMLHttpRequest();
     let today = new Date();
     let yesterday = new Date(today.setDate(today.getDate() - 1));
-    var url = 'http://openAPI.seoul.go.kr:8088/4d76576e797279613632514e4e7a44/xml/TbCorona19CountStatusJCG/1/5/'+toStringByFormatting(yesterday)+'.00'; /*URL*/
+    var url = 'https://openAPI.seoul.go.kr:8088/4d76576e797279613632514e4e7a44/xml/TbCorona19CountStatusJCG/1/5/'+toStringByFormatting(yesterday)+'.00'; /*URL*/
     
 
     xhr.open('GET', url);
