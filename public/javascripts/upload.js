@@ -42,8 +42,8 @@ function displayPlaces(data){
 
 
     for (let i =0; i<data.length;i++){
-        let lat = data[i].y;
-        let lng = data[i].x;
+        let lat = data[i].lat;
+        let lng = data[i].lng;
         let address_name = data[i]["address_name"];
         let place_name = data[i]["place_name"];
 
