@@ -26,16 +26,16 @@ $('.cm_menu .cm_arrowspan').click(function () {
 });
 
 $("#cm_logo").on("click",function(){
- location.href="coronagram"; 
+ location.href="http://localhost:8090/Coronagram/coronagram"; 
 });
 $("#cm_home").on("click",function(){
-  location.href="main"; 
+  location.href="http://localhost:8090/Coronagram/main"; 
 });
 $("#cm_shop").on("click",function(){
-  location.href="shop"; 
+  location.href="http://localhost:8090/Coronagram/shop"; 
 });
 $("#cm_cld").on("click",function(){
-  location.href="calendar"; 
+  location.href="http://localhost:8090/Coronagram/calendar"; 
 });
 
 

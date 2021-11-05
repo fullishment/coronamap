@@ -41,10 +41,10 @@ $.ajax({
                 
                 
             });
-            //$(".cluster1 , .cluster2").removeClass("hide");
+        $(".cluster1 , .cluster2").removeClass("hide");
             map.data.removeGeoJson(seoulGeoJson);
         }else{
-            //$(".cluster1 , .cluster2").addClass("hide");
+            $(".cluster1 , .cluster2").addClass("hide");
             regionGeoJson.forEach((geojson) => {
                 map.data.addGeoJson(geojson);
                 
@@ -126,16 +126,15 @@ for(let i = 0, ii = markerList.length; i <ii; i++) {
 
     //10개 이하일때는 클러스터1 실행
     const cluster1 = {
-        content: `<div class="cluster1 hide"></div>` ,
+        content: `<div class="cluster1"></div>` ,
     };
     //10개 이상 100개 이하면 클러스터2 실행 이런식으로 만들 예정
     const cluster2 = {
-        content: `<div class="cluster2 hide"></div>`,
+        content: `<div class="cluster2"></div>`,
     };
     
     const cluster3 = {
-        
-        content: `<div class="cluster3 hide"></div>`,
+        content: `<div class="cluster3"></div>`,
     };
     
 
@@ -151,6 +150,14 @@ for(let i = 0, ii = markerList.length; i <ii; i++) {
         indexGernerator : [2, 5, 10],   //클러스터1,2,3 이 실행되는 조건,기준  10개 이상이면 클러스터3 실행
         stylingFunction: (clusterMarker, count) => {
             $(clusterMarker.getElement()).find("div:first-child").text(count);  //클러스터 안에 몇개의 마커가 있는지 시각적으로 보여줌
+            if($("#viewCB").is(":checked")){
+                
+                $(".cluster1 , .cluster2").removeClass("hide");
+                
+            }else{
+                $(".cluster1 , .cluster2").addClass("hide");
+                
+            }
         },
     });
 });
@@ -252,7 +259,7 @@ function seoulApi(){
     var xhr = new XMLHttpRequest();
     let today = new Date();
     let yesterday = new Date(today.setDate(today.getDate() - 1));
-    var url = 'https://openAPI.seoul.go.kr:8088/4d76576e797279613632514e4e7a44/xml/TbCorona19CountStatusJCG/1/5/'+toStringByFormatting(yesterday)+'.00'; /*URL*/
+    var url = 'http://openAPI.seoul.go.kr:8088/446163756f7279613832734d6e734c/xml/TbCorona19CountStatusJCG/1/5/'+toStringByFormatting(yesterday)+'.00'; /*URL*/
     
 
     xhr.open('GET', url);
